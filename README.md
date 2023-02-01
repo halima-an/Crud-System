@@ -11,6 +11,3 @@ Delete
 ```
 In addition, user can search
 
-<img src="D:\Full-Stack\crud-sys.png">
-
-
