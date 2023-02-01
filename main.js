@@ -41,6 +41,10 @@ function addCourse(){
   
   display()
  
+  courseName.classList.remove('is-valid')
+  courseCategory.classList.remove('is-valid')
+  coursePrice.classList.remove('is-valid')
+  courseDescription.classList.remove('is-valid')
   clearinputs()
 }
 //clear inputs
@@ -147,4 +151,99 @@ addBtn.innerHTML='Add Course'
 
 
 
+}
+// validation
+// regex
+
+/**
+ * course name
+ * first letter capital
+ * name 3-10
+ * no numbers
+ */
+courseName.onkeyup = function(){
+  pattern= /^[A-Z][a-z]{2,10}$/
+  //if true
+  if(pattern.test(courseName.value)){
+    courseName.classList.remove('is-invalid')
+    courseName.classList.add('is-valid')
+    addBtn.removeAttribute('disabled')
+
+    //if false
+  }else{
+    courseName.classList.remove('is-valid')
+    courseName.classList.add('is-invalid')
+    addBtn.setAttribute('disabled','disabled')
+  }
+    
+}
+
+/**
+ * category
+ * first letter capital
+ * name 3-10
+ * no numbers
+ * accept spaces
+ */
+courseCategory.onkeyup = function(){
+  pattern= /^[A-Z][a-z\s]{2,10}$/
+  //if true
+  if(pattern.test(courseCategory.value)){
+    courseCategory.classList.remove('is-invalid')
+    courseCategory.classList.add('is-valid')
+    addBtn.removeAttribute('disabled')
+
+    //if false
+  }else{
+    courseCategory.classList.remove('is-valid')
+    courseCategory.classList.add('is-invalid')
+    addBtn.setAttribute('disabled','disabled')
+  }
+    
+}
+
+/**
+ * price
+ * numeric
+ * 4 digits
+ 
+ */
+coursePrice.onkeyup = function(){
+  pattern= /^[0-9]{1,4}$/
+  //if true
+  if(pattern.test(coursePrice.value)){
+    coursePrice.classList.remove('is-invalid')
+    coursePrice.classList.add('is-valid')
+    addBtn.removeAttribute('disabled')
+
+    //if false
+  }else{
+    coursePrice.classList.remove('is-valid')
+    coursePrice.classList.add('is-invalid')
+    addBtn.setAttribute('disabled','disabled')
+  }
+    
+}
+
+/**
+ * course descripition
+ * first letter capital
+ * name 3-10
+ * no numbers
+ */
+courseDescription.onkeyup = function(){
+  pattern= /^[A-Za-z0-9\s]{1,60}$/
+  //if true
+  if(pattern.test(courseDescription.value)){
+    courseDescription.classList.remove('is-invalid')
+    courseDescription.classList.add('is-valid')
+    addBtn.removeAttribute('disabled')
+
+    //if false
+  }else{
+    courseDescription.classList.remove('is-valid')
+    courseDescription.classList.add('is-invalid')
+    addBtn.setAttribute('disabled','disabled')
+  }
+    
 }
